@@ -1,0 +1,33 @@
+{
+    "name": "andrewdyer/view-presenters",
+    "description": "A clean, reusable solution for tiding up cluttered models and views which have too much logic!",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Dyer",
+            "email": "andrewdyer@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Anddye\\ViewPresenters\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Anddye\\ViewPresenters\\Tests\\": "tests"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "symfony/var-dumper": "^5.1",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpunit/phpunit": "^9.1"
+    },
+    "scripts": {
+        "cs": [
+            "vendor/bin/php-cs-fixer fix"
+        ]
+    }
+}
