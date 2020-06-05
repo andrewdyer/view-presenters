@@ -19,7 +19,9 @@
             "Anddye\\ViewPresenters\\Tests\\": "tests"
         }
     },
-    "require": {},
+    "require": {
+        "php": "^7.0"
+    },
     "require-dev": {
         "symfony/var-dumper": "^5.1",
         "friendsofphp/php-cs-fixer": "^2.16",
