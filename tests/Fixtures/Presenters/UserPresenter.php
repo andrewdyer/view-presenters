@@ -5,29 +5,15 @@ namespace Anddye\ViewPresenters\Tests\Fixtures\Presenters;
 use Anddye\ViewPresenters\Presenter;
 use Anddye\ViewPresenters\Tests\Fixtures\Models\User;
 
-/**
- * Class UserPresenter.
- */
 class UserPresenter extends Presenter
 {
-    /**
-     * @var User
-     */
-    protected $user;
+    protected User $user;
 
-    /**
-     * UserPresenter constructor.
-     *
-     * @param User $user
-     */
     public function __construct(User $user)
     {
         $this->user = $user;
     }
 
-    /**
-     * @return array
-     */
     public function defaultAttributes(): array
     {
         $data = [];
@@ -38,9 +24,6 @@ class UserPresenter extends Presenter
         return $data;
     }
 
-    /**
-     * @return string
-     */
     public function name(): string
     {
         return $this->user->getForename() . ' ' . $this->user->getSurname();
