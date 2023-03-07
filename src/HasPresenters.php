@@ -2,18 +2,8 @@
 
 namespace Anddye\ViewPresenters;
 
-/**
- * Trait UsesPresentersTrait.
- */
-trait UsesPresentersTrait
+trait HasPresenters
 {
-    /**
-     * @param string $type
-     *
-     * @return PresenterInterface
-     *
-     * @throws PresenterNotFoundException
-     */
     public function present(string $type = 'default'): PresenterInterface
     {
         if (!isset($this->presenters[$type])) {

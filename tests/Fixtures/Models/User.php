@@ -3,11 +3,11 @@
 namespace Anddye\ViewPresenters\Tests\Fixtures\Models;
 
 use Anddye\ViewPresenters\Tests\Fixtures\Presenters\UserPresenter;
-use Anddye\ViewPresenters\UsesPresentersTrait;
+use Anddye\ViewPresenters\HasPresenters;
 
 class User
 {
-    use UsesPresentersTrait;
+    use HasPresenters;
 
     /**
      * @var string

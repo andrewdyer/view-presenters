@@ -57,18 +57,18 @@ class UserPresenter extends Presenter
 ### Use presenters
 Models can use the `Anddye\ViewPresenters\UsesPresentersTrait` trait to access the `present()` method. Presenter types must
 be defined in a `$presenters` property. By default the `default` type will be used when this method is called. Custom types
-can be defined and used by passing the key as an argument to the `present()` method.  
+can be defined and used by passing the key as an argument to the `present()` method.
 
 ```php
 namespace App\Models;
 
-use Anddye\ViewPresenters\UsesPresentersTrait;
+use Anddye\ViewPresenters\HasPresenters;
 use App\Presenters\UserPresenter;
 use App\Presenters\UserSubscriptionPresenter;
 
 class User
 {
-    use UsesPresentersTrait;
+    use HasPresenters;
 
     protected $id;
     protected $forename;
