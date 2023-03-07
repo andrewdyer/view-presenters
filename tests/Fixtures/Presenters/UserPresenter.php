@@ -2,13 +2,13 @@
 
 namespace Anddye\ViewPresenters\Tests\Fixtures\Presenters;
 
-use Anddye\ViewPresenters\AbstractPresenter;
+use Anddye\ViewPresenters\Presenter;
 use Anddye\ViewPresenters\Tests\Fixtures\Models\User;
 
 /**
  * Class UserPresenter.
  */
-class UserPresenter extends AbstractPresenter
+class UserPresenter extends Presenter
 {
     /**
      * @var User

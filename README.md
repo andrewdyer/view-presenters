@@ -25,10 +25,10 @@ All presenters must be an instance of `Anddye\ViewPresenters\PresenterInterface`
 ```php
 namespace App\Presenters;
 
-use Anddye\ViewPresenters\AbstractPresenter;
+use Anddye\ViewPresenters\Presenter;
 use App\Models\User;
 
-class UserPresenter extends AbstractPresenter
+class UserPresenter extends Presenter
 {
     protected $user;
 
