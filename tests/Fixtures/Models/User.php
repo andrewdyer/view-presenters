@@ -1,13 +1,10 @@
 <?php
 
-namespace Anddye\ViewPresenters\Tests\Stubs\Models;
+namespace Anddye\ViewPresenters\Tests\Fixtures\Models;
 
-use Anddye\ViewPresenters\Tests\Stubs\Presenters\UserPresenter;
+use Anddye\ViewPresenters\Tests\Fixtures\Presenters\UserPresenter;
 use Anddye\ViewPresenters\UsesPresentersTrait;
 
-/**
- * Class User.
- */
 class User
 {
     use UsesPresentersTrait;

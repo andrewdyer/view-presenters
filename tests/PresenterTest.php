@@ -3,7 +3,7 @@
 namespace Anddye\ViewPresenters\Tests;
 
 use Anddye\ViewPresenters\PresenterNotFoundException;
-use Anddye\ViewPresenters\Tests\Stubs\Models\User;
+use Anddye\ViewPresenters\Tests\Fixtures\Models\User;
 use Error;
 use PHPUnit\Framework\TestCase;
 

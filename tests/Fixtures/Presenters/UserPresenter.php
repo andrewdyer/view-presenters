@@ -1,9 +1,9 @@
 <?php
 
-namespace Anddye\ViewPresenters\Tests\Stubs\Presenters;
+namespace Anddye\ViewPresenters\Tests\Fixtures\Presenters;
 
 use Anddye\ViewPresenters\AbstractPresenter;
-use Anddye\ViewPresenters\Tests\Stubs\Models\User;
+use Anddye\ViewPresenters\Tests\Fixtures\Models\User;
 
 /**
  * Class UserPresenter.
