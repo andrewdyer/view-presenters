@@ -4,22 +4,12 @@ namespace Anddye\ViewPresenters\Tests;
 
 use Anddye\ViewPresenters\PresenterNotFoundException;
 use Anddye\ViewPresenters\Tests\Fixtures\Models\User;
-use Error;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class PresenterTest.
- */
 class PresenterTest extends TestCase
 {
-    /**
-     * @var User
-     */
-    protected $user;
+    protected User $user;
 
-    /**
-     * This method is called before each test.
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -27,21 +17,15 @@ class PresenterTest extends TestCase
         $this->user = User::build(1, 'Andrew', 'Dyer');
     }
 
-    /**
-     * @test
-     */
-    public function cannotPresentUndefinedAttribute(): void
+    public function testCannotPresentUndefinedAttribute(): void
     {
         $this->assertNull($this->user->present()->age);
 
-        $this->expectException(Error::class);
+        $this->expectException(\Error::class);
         $this->user->present()->age();
     }
 
-    /**
-     * @test
-     */
-    public function canPresentCustomAttribute(): void
+    public function testCanPresentCustomAttribute(): void
     {
         $this->assertIsString($this->user->present()->name);
         $this->assertIsString($this->user->present()->name());
@@ -50,10 +34,7 @@ class PresenterTest extends TestCase
         $this->assertEquals('Andrew Dyer', $this->user->present()->name());
     }
 
-    /**
-     * @test
-     */
-    public function canPresentDefaultAttributes(): void
+    public function testCanPresentDefaultAttributes(): void
     {
         $this->assertIsArray($this->user->present()->defaultAttributes);
         $this->assertIsArray($this->user->present()->defaultAttributes());
@@ -64,10 +45,7 @@ class PresenterTest extends TestCase
         $this->assertEquals($expectedDefaultAttributes, array_keys($this->user->present()->defaultAttributes()));
     }
 
-    /**
-     * @test
-     */
-    public function presenterNotFoundExceptionThrownIfTypeIsUndefined(): void
+    public function testPresenterNotFoundExceptionThrownIfTypeIsUndefined(): void
     {
         $this->expectException(PresenterNotFoundException::class);
 
