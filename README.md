@@ -30,7 +30,7 @@ use App\Models\User;
 
 class UserPresenter extends Presenter
 {
-    protected $user;
+    protected User $user;
 
     public function __construct(User $user)
     {
@@ -70,10 +70,10 @@ class User
 {
     use HasPresenters;
 
-    protected $id;
-    protected $forename;
-    protected $surname;
-    protected $presenters = [
+    protected int $id;
+    protected string $forename;
+    protected string $surname;
+    protected array $presenters = [
         'default' => UserPresenter::class,
         'subscription' => UserSubscriptionPresenter::class
         // ...
