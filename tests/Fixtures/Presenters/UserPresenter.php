@@ -7,11 +7,8 @@ use Anddye\ViewPresenters\Tests\Fixtures\Models\User;
 
 class UserPresenter extends Presenter
 {
-    protected User $user;
-
-    public function __construct(User $user)
+    public function __construct(readonly protected User $user)
     {
-        $this->user = $user;
     }
 
     public function defaultAttributes(): array

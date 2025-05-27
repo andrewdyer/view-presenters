@@ -9,7 +9,6 @@ class User
 {
     use HasPresenters;
     protected string $forename;
-
     protected int $id;
     protected array $presenters = ['default' => UserPresenter::class];
     protected string $surname;
