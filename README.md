@@ -22,7 +22,7 @@ composer require andrewdyer/view-presenters
 
 ### 1️⃣ Define a Presenter
 
-Create a presenter class that extends `Anddye\ViewPresenters\Presenter`:
+Create a presenter class that extends `Presenter`:
 
 ```php
 <?php
@@ -93,7 +93,7 @@ class User {
 
 ## 📖 Usage
 
-Access presenter attributes via the present() method:
+Access presenter attributes via the `present()` method:
 
 ```php
 $user = new User();
