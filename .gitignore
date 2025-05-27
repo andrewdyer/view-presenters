@@ -1,5 +1,18 @@
-/.idea
+# Ignore PhpStorm project files
+.idea/
+
+# Ignore VSCode project files
+.vscode/
+
+# Ignore vendor dependencies
 /vendor
-.php_cs.cache
+
+# Ignore generated files
+.php-cs-fixer.cache
 .phpunit.result.cache
+
+# Ignore local config
+.php-cs-fixer.php
+
+# Ignore Composer lock file (recommended for libraries)
 composer.lock

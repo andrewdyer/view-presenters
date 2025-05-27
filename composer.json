@@ -12,19 +12,27 @@
     ],
     "autoload": {
         "psr-4": {
-            "Anddye\\ViewPresenters\\": "src"
+            "Anddye\\ViewPresenters\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Anddye\\ViewPresenters\\Tests\\": "tests"
+            "Anddye\\ViewPresenters\\Tests\\": "tests/"
         }
     },
     "require": {
-        "php": "^7.4 || ^8.0"
+        "php": "^8.3"
     },
     "require-dev": {
-        "symfony/var-dumper": "^5.4",
-        "phpunit/phpunit": "^9.6"
-    }
+        "friendsofphp/php-cs-fixer": "^3.75",
+        "phpunit/phpunit": "^10.5"
+    },
+    "scripts": {
+        "cs": "php-cs-fixer fix",
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
 }
