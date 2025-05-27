@@ -1,50 +1,48 @@
 # View Presenters
-A clean, reusable solution for tiding up cluttered models and views which have too much logic!
- 
-## License
-Licensed under MIT. Totally free for private or commercial projects.
 
-## Installation
-```text
+A clean, reusable solution for separating presentation logic from models and views in PHP applications.≈
+
+## ⚖️ License
+
+Licensed under the [MIT license](https://opensource.org/licenses/MIT) and is free for private or commercial projects.
+
+## ✨ Introduction
+
+When models or views become bloated with formatting and derived data logic, **View Presenters** offer a way to offload that responsibility into dedicated presenter classes. This improves separation of concerns, testability, and reusability.
+
+## 📦 Installation
+
+Install via Composer:
+
+```shell
 composer require andrewdyer/view-presenters
 ```
 
-## Usage
-```php
-$user = new App\Models\User;
-$user->setForename('Andrew');
-$user->setSurname('Dyer');
+## 🚀 Getting Started
 
-var_dump($user->present()->name); // Andrew Dyer
-```
+### 1️⃣ Define a Presenter
 
-### View Presenter
-All presenters must be an instance of `Anddye\ViewPresenters\PresenterInterface` and ideally should extend
-`Anddye\ViewPresenters\AbstractPresenter` - which will implement the required interface by default.
+Create a presenter class that extends `Anddye\ViewPresenters\Presenter`:
 
 ```php
+<?php
+
 namespace App\Presenters;
 
-use Anddye\ViewPresenters\Presenter;
 use App\Models\User;
+use Anddye\ViewPresenters\Presenter;
 
 class UserPresenter extends Presenter
 {
-    protected User $user;
-
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
+    public function __construct(readonly private User $user) {}
 
     public function defaultAttributes(): array
     {
-        $data = [];
-        $data['id'] = $this->user->getId();
-        $data['forename'] = $this->user->getForename();
-        $data['surname'] = $this->user->getSurname();
-
-        return $data;
+        return [
+            'id' => $this->user->getId(),
+            'forename' => $this->user->getForename(),
+            'surname' => $this->user->getSurname(),
+        ];
     }
 
     public function name(): string
@@ -54,20 +52,19 @@ class UserPresenter extends Presenter
 }
 ```
 
-### Use presenters
-Models can use the `Anddye\ViewPresenters\UsesPresentersTrait` trait to access the `present()` method. Presenter types must
-be defined in a `$presenters` property. By default the `default` type will be used when this method is called. Custom types
-can be defined and used by passing the key as an argument to the `present()` method.
+### 2️⃣ Attach Presenter to Model
+
+Use the `HasPresenters` trait in your model and define available presenters:
 
 ```php
+<?php
+
 namespace App\Models;
 
-use Anddye\ViewPresenters\HasPresenters;
 use App\Presenters\UserPresenter;
-use App\Presenters\UserSubscriptionPresenter;
+use Anddye\ViewPresenters\HasPresenters;
 
-class User
-{
+class User {
     use HasPresenters;
 
     protected int $id;
@@ -75,16 +72,34 @@ class User
     protected string $surname;
     protected array $presenters = [
         'default' => UserPresenter::class,
-        'subscription' => UserSubscriptionPresenter::class
-        // ...
     ];
 
-    // ...
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
+    public function getForename(): string
+    {
+        return $this->forename;
+    }
+
+    public function getSurname(): string
+    {
+        return $this->surname;
+    }
 }
 ```
 
-```php
-// ...
+## 📖 Usage
 
-$data = $user->present('subscription')->defaultAttributes;
+Access presenter attributes via the present() method:
+
+```php
+$user = new User();
+$user->setId(1);
+$user->setForename('John');
+$user->setSurname('Doe');
+
+echo $user->present()->name; // "John Doe"
+```
