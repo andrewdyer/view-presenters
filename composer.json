@@ -1,6 +1,6 @@
 {
     "name": "andrewdyer/view-presenters",
-    "description": "A clean, reusable solution for tiding up cluttered models and views which have too much logic!",
+    "description": "A clean, reusable solution for separating presentation logic from models and views in PHP applications",
     "type": "library",
     "license": "MIT",
     "authors": [

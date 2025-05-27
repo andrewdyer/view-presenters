@@ -1,6 +1,6 @@
 # View Presenters
 
-A clean, reusable solution for separating presentation logic from models and views in PHP applications.≈
+A clean, reusable solution for separating presentation logic from models and views in PHP applications.
 
 ## ⚖️ License
 
